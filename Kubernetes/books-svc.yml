@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: book-app-service
+  namespace: dusty
+spec:
+  selector:
+    app: book-app # name of deployment  
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP
