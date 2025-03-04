@@ -1,0 +1,55 @@
+@keycloak_url=https://auth.snowse.duckdns.org
+ 
+# double check cookies in settings for http requests
+# rest client settings > uncheck remember cookies
+ 
+ 
+###
+# create challenge: echo -n "randomsecretstringrandomsecretstringrandomsecretstringrandomsecretstring" | sha256sum -b | xxd -p -r | base64 | tr '/+' '_-' | tr -d '='
+# code_challenge: wjyPi7DnThs7N3PS9S9t2bLrtdrhXxU39zx1sBoGx90
+# i think code_verifier has length requirements
+# @name first
+ 
+GET {{keycloak_url}}/realms/advanced-frontend/protocol/openid-connect/auth
+    ?client_id=alex-in-class
+    &redirect_uri=http://doestntExist/callback
+    &response_type=code
+    &response_mode=fragment
+    &state=doesntmatter
+    &code_challenge=gR16hjqNRs3ofOuVtlHGwabDPymJQYT8sJ1UxnW09qk
+    &code_challenge_method=S256
+    &scope=profile openid email
+### get url from action of previous form
+### & is going to be html escaped
+# @name manualLogin
+post https://auth.snowse.duckdns.org/realms/advanced-frontend/login-actions/authenticate
+    ?session_code=mP4-k-U44jzHM8eBgcjtayKM8iv2fKoilLjG-BfRBDM
+    &execution=44aca951-c12e-4dab-b654-0182a6e46a76
+    &client_id=alex-in-class
+    &tab_id=YDttoZdyuug
+    &client_data=eyJydSI6Imh0dHA6Ly9kb2VzdG50RXhpc3QvY2FsbGJhY2siLCJydCI6ImNvZGUiLCJybSI6ImZyYWdtZW50Iiwic3QiOiJkb2VzbnRtYXR0ZXIifQ
+Content-Type: application/x-www-form-urlencoded
+Cookie: {{first.response.headers.Set-Cookie}}
+ 
+username=alex
+&password=alex
+ 
+### turn the code into a token
+# @name getToken
+post {{keycloak_url}}/realms/advanced-frontend/protocol/openid-connect/token
+Cookie: {{first.response.headers.Set-Cookie}}
+Content-Type: application/x-www-form-urlencoded
+ 
+client_id=alex-in-class
+&code=a52ef07a-16f0-4b94-b9da-6eb3aea6e987.b980af71-01c9-4e52-898d-a4f27ac8140c.97277d2e-a541-41cf-8278-c6392d695653
+&redirect_uri=http://doestntExist/callback
+&code_verifier=gR16hjqNRs3ofOuVtlHGwabDPymJQYT8sJ1UxnW09qk
+&grant_type=authorization_code
+ 
+###
+# https://auth.snowse.duckdns.org/realms/advanced-frontend/.well-known/openid-configuration
+# for this to work, you must request the openid scope at the begining of the workflow
+# @name useToken
+ 
+get {{keycloak_url}}/realms/advanced-frontend/protocol/openid-connect/userinfo
+Authorization: Bearer accessTokenGoesHere

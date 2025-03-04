@@ -1,0 +1,9 @@
+build/
+dist/
+node modules/
+node_modules/
+.gitignore
+Dockerfile
+docker-compose.yml
+kube/
+.github/

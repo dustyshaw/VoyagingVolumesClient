@@ -1,0 +1,57 @@
+[
+    {
+        "id": 1,
+        "title": "East of Eden",
+        "author": "John Steinbeck",
+        "isbn": "9780142000653",
+        "image_url": "https://m.media-amazon.com/images/I/714iJhKi0QL._AC_UF1000,1000_QL80_.jpg",
+        "prices": {
+            "new": 14.99,
+            "used": 2.99
+        }
+    },
+    {
+        "id": 2,
+        "title": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "isbn": "9780060935467",
+        "image_url": "https://m.media-amazon.com/images/I/81aY1lxk+9L._AC_UF1000,1000_QL80_.jpg",
+        "prices": {
+            "new": 12.99,
+            "used": 4.50
+        }
+    },
+    {
+        "id": 3,
+        "title": "1984",
+        "author": "George Orwell",
+        "isbn": "9780451524935",
+        "image_url": "https://m.media-amazon.com/images/I/61NAx5pd6XL._AC_UF1000,1000_QL80_.jpg",
+        "prices": {
+            "new": 15.00,
+            "used": 5.00
+        }
+    },
+    {
+        "id": 4,
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "isbn": "9780743273565",
+        "image_url": "https://m.media-amazon.com/images/I/81QuEGw8VPL._AC_UF1000,1000_QL80_.jpg",
+        "prices": {
+            "new": 10.99,
+            "used": 3.25
+        }
+    },
+    {
+        "id": 6,
+        "title": "Pride and Prejudice",
+        "author": "Jane Austen",
+        "isbn": "9781503290563",
+        "image_url": "https://cdn.kobo.com/book-images/afcd8653-3b27-4423-bee9-570fb1441aed/1200/1200/False/pride-and-prejudice-71.jpg",
+        "prices": {
+            "new": 9.99,
+            "used": 3.50
+        }
+    }
+]
