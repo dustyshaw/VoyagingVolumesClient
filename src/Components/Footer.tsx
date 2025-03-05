@@ -18,9 +18,9 @@ const Footer = () => {
           </div>
           <hr />
           <div className="d-flex justify-content-between">
-            <div>&copy; Voyagers Volumes 2024</div>
-            <div className="d-flex">
-              <InstagramIcon />
+            <div>&copy; Voyagin Volumes 2024</div>
+            <div className="d-flex mb-5">
+              <InstagramIcon className="mx-3"/>
               <FacebookIcon />
             </div>
           </div>

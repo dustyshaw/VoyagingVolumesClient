@@ -27,7 +27,6 @@ const Home = () => {
               src="https://dummyimage.com/500x400/738A99/738A99"
               className="rounded img img-fluid"
             />
-            <small><br />Prof, This is going to be a photo when I get a photo of the trailer...</small>
           </div>
         </div>
 
@@ -58,12 +57,15 @@ const Home = () => {
               </Link>
             ))
           )}
+          {books.length == 0 && <h2>No Books Yet!</h2>}
         </div>
       </div>
       <div className="mt-5 bg-dblue">
         <div className="container pt-5 pb-5 text-white">
-          <center>
-            <h3>Contact List</h3>
+          
+        <div className="ml-embedded" data-form="XKP6fr"></div>
+           <center>
+            <h3>Stay Connected</h3>
             <p>Enter our contact list for a free book on your next visit.</p>
             <input type="text" />
           </center>
